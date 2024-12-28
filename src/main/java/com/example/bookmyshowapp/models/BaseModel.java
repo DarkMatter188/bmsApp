@@ -9,8 +9,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-@Entity
-@MappedSuperclass()
+@MappedSuperclass
 public class BaseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //AUTO-INCREMENT
