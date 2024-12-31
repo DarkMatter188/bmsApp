@@ -11,5 +11,5 @@ import java.util.List;
 public class CreateBookingRequestDto {
     private Long userId;
     private Long showId;
-    private List<Long> showSeatId;
+    private List<Long> showSeatIds;
 }

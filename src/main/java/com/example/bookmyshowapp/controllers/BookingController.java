@@ -23,20 +23,13 @@ public class BookingController {
 
         try {
             Booking booking = bookingService.createBooking(requestDto.getUserId(),
-                    requestDto.getShowSeatId(), requestDto.getShowId());
+                    requestDto.getShowSeatIds(),
+                    requestDto.getShowId());
 
-            //If successful
             responseDto.setBookingId(booking.getId());
             responseDto.setResponseStatus(ResponseStatus.SUCCESS);
-        } catch (UserNotFoundException e) {
+        } catch (Exception e) {
             responseDto.setResponseStatus(ResponseStatus.FAILURE);
-            throw new RuntimeException(e);
-        } catch (ShowNotFoundException e) {
-            responseDto.setResponseStatus(ResponseStatus.FAILURE);
-            throw new RuntimeException(e);
-        } catch (SeatNotFoundException e) {
-            responseDto.setResponseStatus(ResponseStatus.FAILURE);
-            throw new RuntimeException(e);
         }
         return responseDto;
     }
